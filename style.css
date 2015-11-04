@@ -1,0 +1,21 @@
+#a {
+    display: inline;
+    float: right;
+    margin-right: 50%; 
+    margin-top: 10%; 
+}
+button {
+    padding: .5em 2em;
+    background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	color:#ffffff;
+	font-size:17px;
+	padding:10px 20px;
+}
+h1 { 
+    color: #44c767;
+    font-family: arial; 
+}
+
+
