@@ -1,4 +1,6 @@
- var context = document.getElementById('canvas').getContext('2d');
+ //<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+
+var context = document.getElementById('canvas').getContext('2d');
  var x = 100;
  var y = 100;
 
@@ -49,7 +51,13 @@ game_count = 0;
          //stopping timer and keydown behavior then resetting the canvas        
          } else {
                 game_count = game_count + 1; 
-         console.log(game_count);
+                    console.log(game_count);
+                        $.ajax({
+                            type:"POST",
+                            url: "snake.php", 
+                            data: {game_count: 'value here', tile_count: 'value here'} 
+                        }); 
+
              clearInterval(timer);
              context.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -89,3 +97,4 @@ game_count = 0;
      timer = setInterval(rect, 50, e);
 
  }; 
+
