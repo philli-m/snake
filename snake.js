@@ -19,24 +19,24 @@ game_count = 0;
  
  //description of movement 
      function rect(e) {
-         //console.log(x);
+         console.log(x);
 
          switch (e.keyCode) {
 
              case 38:
-                 (y = y - 5);
+                 (y = y - 10);
                  break;
 
              case 40:
-                 (y = y + 5);
+                 (y = y + 10);
                  break;
 
              case 39:
-                 (x = x + 5);
+                 (x = x + 10);
                  break;
 
              case 37:
-                 (x = x - 5);
+                 (x = x - 10);
                  break;
          }
 
@@ -95,7 +95,7 @@ game_count = 0;
  document.onkeydown = function (e) {
      clearInterval(timer);
      //console.log(x, y);
-     timer = setInterval(rect, 50, e);
+     timer = setInterval(rect, 100, e);
 
  }; 
 
