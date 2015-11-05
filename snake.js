@@ -50,12 +50,14 @@ game_count = 0;
              //console.log(tile_count); 
          //stopping timer and keydown behavior then resetting the canvas        
          } else {
+            //sending bothe the counts before resetting board 
                 game_count = game_count + 1; 
                     console.log(game_count);
+
                         $.ajax({
                             type:"POST",
                             url: "snake.php", 
-                            data: {game_count: 'value here', tile_count: 'value here'} 
+                            data: {game_count, tile_count} 
                         }); 
 
              clearInterval(timer);
