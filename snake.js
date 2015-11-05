@@ -50,7 +50,7 @@ game_count = 0;
              //console.log(tile_count); 
          //stopping timer and keydown behavior then resetting the canvas        
          } else {
-            //sending bothe the counts before resetting board 
+            //sending both the counts before resetting board 
                 game_count = game_count + 1; 
                     console.log(game_count);
 
@@ -59,20 +59,19 @@ game_count = 0;
                             url: "snake.php", 
                             data: {game_count, tile_count} 
                         }); 
+                        tile_count = 0;
 
              clearInterval(timer);
              context.clearRect(0, 0, canvas.width, canvas.height);
 
              //button still not working!
-                //game_count = game_count + 1;
-                 //console.log(game_count); 
 
              for (i = 0; i < 200; ++i) {
              grid[i] = [];
 
              for (j = 0; j < 200; ++j) {
                  grid[i][j] = false;
-
+                 tile_count = 0; 
             }
             }
         }
