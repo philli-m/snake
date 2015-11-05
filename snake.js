@@ -1,8 +1,10 @@
-var context = document.getElementById('canvas').getContext('2d');
+ var context = document.getElementById('canvas').getContext('2d');
  var x = 100;
  var y = 100;
 
- grid = [];
+grid = [];
+tile_count = 0; 
+game_count = 0; 
 
 //mapping the canvas grid to track collision detection and labelling all usable coordinates in the grid as false
      for (i = 0; i < 200; ++i) {
@@ -15,7 +17,7 @@ var context = document.getElementById('canvas').getContext('2d');
  
  //description of movement 
      function rect(e) {
-         console.log(x);
+         //console.log(x);
 
          switch (e.keyCode) {
 
@@ -42,18 +44,25 @@ var context = document.getElementById('canvas').getContext('2d');
          //if statment within movement function to check grid coordinate is new and then labelling  contacted coordinates as true 
          if (grid[x][y] === false) {
              grid[x][y] = true;
-
-         //stopping timer and keydown behavior then resetting the canvas  	    
+             tile_count = tile_count + 1; 
+             //console.log(tile_count); 
+         //stopping timer and keydown behavior then resetting the canvas        
          } else {
+                game_count = game_count + 1; 
+         console.log(game_count);
              clearInterval(timer);
              context.clearRect(0, 0, canvas.width, canvas.height);
-        
+
+             //button still not working!
+                //game_count = game_count + 1;
+                 //console.log(game_count); 
+
              for (i = 0; i < 200; ++i) {
              grid[i] = [];
 
              for (j = 0; j < 200; ++j) {
                  grid[i][j] = false;
-            // php will have to gather all these and store them in an array to send to database when game has finished
+
             }
             }
         }
@@ -67,7 +76,7 @@ var context = document.getElementById('canvas').getContext('2d');
          }
 
          //calling dot to the assign random numbers as rgb colors in css format 
-         context.fillStyle = 'rgb(' + colors[0] + ',' + colors[1] + ',' + colors[2] + ')';
+         context.fillStyle = "rgb(" + colors[0] + "," + colors[1] + "," + colors[2] + ")";
      }
 
  //timer variable to allow continuous movement      
@@ -76,7 +85,7 @@ var context = document.getElementById('canvas').getContext('2d');
  //describes the continuous movement of the dot by repeating past movement until key is pressed again 
  document.onkeydown = function (e) {
      clearInterval(timer);
-     console.log(x, y);
+     //console.log(x, y);
      timer = setInterval(rect, 50, e);
 
- };"
+ }; 
