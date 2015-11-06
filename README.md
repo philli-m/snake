@@ -2,12 +2,11 @@
 attempt at snake with javascript php and mysql 
 
 to do 
-- fix button behaviour on js
-- check out syntax for ajax request
-  - ajax requests write to a database without a page reload required? 
-- create database and table  - sqlite?  
-- hook up database to php
-- database and table created under root login credentials 
+- fix button behaviour on button - research event handler to include clicks 
+- add extra column on existing database 
+- reset starting position 
+- add name input 
+- 
 
 # H1 What is an ajax request: 
 Ajax, or Asynchronous JavaScript and XML, is an approach to Web application development that uses client-side scripting to exchange data with the Web server. As a result, Web pages are dynamically updated without a full page refresh interrupting the interaction flow.

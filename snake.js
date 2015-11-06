@@ -92,7 +92,7 @@ game_count = 0;
  var timer;
 
  //describes the continuous movement of the dot by repeating past movement until key is pressed again 
- document.onkeydown = function (e) {
+ document.which = function (e) {
      clearInterval(timer);
      //console.log(x, y);
      timer = setInterval(rect, 100, e);
