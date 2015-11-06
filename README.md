@@ -50,3 +50,6 @@ mysqli_query() expects parameter 1 to be mysqli, null given in
 https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest 
 http://blog.teamtreehouse.com/beginners-guide-to-ajax-development-with-php  
 https://github.com/carpedm20/snake-web https://github.com/Pnatani/Snake-Game/blob/master/Snake.php
+
+http://cdn.tutorialzine.com/wp-content/uploads/2010/02/i3.png
+
