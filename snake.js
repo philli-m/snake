@@ -1,6 +1,7 @@
  //<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
 
 var context = document.getElementById('canvas').getContext('2d');
+
  var x = 100;
  var y = 100;
 
@@ -16,11 +17,10 @@ game_count = 0;
              grid[i][j] = false;
          }
      }
- 
+   console.log("hello");
  //description of movement 
      function rect(e) {
-         console.log(x);
-
+        console.log(e);
          switch (e.keyCode) {
 
              case 38:
@@ -46,23 +46,23 @@ game_count = 0;
          //if statment within movement function to check grid coordinate is new and then labelling  contacted coordinates as true 
          if (grid[x][y] === false) {
              grid[x][y] = true;
-             tile_count = tile_count + 1; 
+             //tile_count = tile_count + 1; 
              //console.log(tile_count); 
          //stopping timer and keydown behavior then resetting the canvas        
          } else {
             //sending both the counts before resetting board 
-                game_count = game_count + 1; 
-                    console.log(game_count);
+                //game_count = game_count + 1; 
+                  //  console.log(game_count);
 
-                        $.ajax({
-                            type:"POST",
-                            url: "snake.php", 
-                            data: {game_count, tile_count} 
-                        }); 
-                        tile_count = 0;
+                      //  $.ajax({
+                      //      type:"POST",
+                      //      url: "snake.php", 
+                      //      data: {game_count, tile_count} 
+                     //   }); 
+                     //   tile_count = 0;
 
              clearInterval(timer);
-             context.clearRect(0, 0, canvas.width, canvas.height);
+             //context.clearRect(0, 0, canvas.width, canvas.height);
 
              //button still not working!
 
@@ -91,8 +91,10 @@ game_count = 0;
  //timer variable to allow continuous movement      
  var timer;
 
+
+ // debugger
  //describes the continuous movement of the dot by repeating past movement until key is pressed again 
- document.which = function (e) {
+ document.onkeydown = function (e) {
      clearInterval(timer);
      //console.log(x, y);
      timer = setInterval(rect, 100, e);

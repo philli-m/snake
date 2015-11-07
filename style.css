@@ -1,10 +1,39 @@
-#a {
-    display: inline;
-    float: right;
-    margin-right: 50%; 
-    margin-top: 10%; 
+body {
+    background: url(CSS_Creme.jpg);
+    font-family:Helvetica;
 }
-button {
+
+div.content{
+    width: 65%;
+    height: 100%;
+    background-color: white;
+    margin-right: auto;
+    margin-left: auto;
+    -webkit-border-radius: 20px;
+    margin-top: 5%; 
+}
+h1 { 
+    color: #44c767;
+    margin-left: 30%;
+    margin-right: 30%; 
+    padding: 10px; 
+}
+
+.game {
+    z-index: 2;
+    margin-left: 30px;
+}
+
+#user_action {
+    display: inline;
+    position: absolute;
+    margin-left: inherit;
+
+}
+form {
+    display: inline-block;
+}
+.button {
     padding: .5em 2em;
     background-color:#44c767;
 	border-radius:28px;
@@ -12,10 +41,8 @@ button {
 	color:#ffffff;
 	font-size:17px;
 	padding:10px 20px;
+    margin: 10px; 
 }
-h1 { 
-    color: #44c767;
-    font-family: arial; 
-}
+
 
 

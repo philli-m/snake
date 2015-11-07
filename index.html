@@ -1,20 +1,27 @@
-<html>
-<link rel="stylesheet" type="text/css" href="style.css">
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-<head>
-</head> 
- <body>
-    <div style="float: left">
-        <h1>Moving the dot</h1>
-    </div>
-    <div style="clear: both">
-        <canvas height="200px" id="canvas" style="border: 1px dotted black"
-        width="200px"></canvas><script type="text/javascript" src="snake.js"></script>
-        <div id="a">
-         <button onclick="rect();">
-    Restart
-</button>
-        </div>
-    </div>
-</body>
-</html>
+    <html>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
+    <head>
+    </head> 
+     <body>
+        <div class="content">
+
+            <div>
+                <h1>Moving the dot</h1>
+            </div>
+        
+            <div class="game" style="clear: both">
+                <canvas height="200px" id="canvas" style="border: 1px dotted black"
+                width="200px"></canvas><script type="text/javascript" src="snake.js"></script>
+            
+                <span id="user_action">
+                    <form action="name">First name: <br><input type="text" name="fname"><br>
+                        <input class="button" type="submit" value="Submit">
+                    </form>
+                    <button class="button" onclick="rect();">Restart</button>
+                </span>
+            </div>
+        </div> 
+    </body>
+    </html>
