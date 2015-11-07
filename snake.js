@@ -9,6 +9,13 @@ grid = [];
 tile_count = 0; 
 game_count = 0; 
 
+function buttonPress(){
+    context.clearRect(0, 0, canvas.width, canvas.height)
+    var x = 100;
+    var y = 100;
+    console.log("button"); 
+}
+
 //mapping the canvas grid to track collision detection and labelling all usable coordinates in the grid as false
      for (i = 0; i < 200; ++i) {
          grid[i] = [];
@@ -72,6 +79,7 @@ game_count = 0;
              for (j = 0; j < 200; ++j) {
                  grid[i][j] = false;
                  tile_count = 0; 
+                 document.onkeydown = null; 
             }
             }
         }

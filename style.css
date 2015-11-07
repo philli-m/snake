@@ -1,5 +1,5 @@
 body {
-    background: url(CSS_Creme.jpg);
+    background: url(multicolor-mosaic2.jpg);
     font-family:Helvetica;
 }
 
@@ -13,7 +13,7 @@ div.content{
     margin-top: 5%; 
 }
 h1 { 
-    color: #44c767;
+    color: #842871;
     margin-left: 30%;
     margin-right: 30%; 
     padding: 10px; 
@@ -34,13 +34,11 @@ form {
     display: inline-block;
 }
 .button {
-    padding: .5em 2em;
-    background-color:#44c767;
-	border-radius:28px;
-	border:1px solid #18ab29;
+    padding: .3em 1em;
+    background-color:#DA6226;
+	border-radius:5px;
 	color:#ffffff;
 	font-size:17px;
-	padding:10px 20px;
     margin: 10px; 
 }
 
