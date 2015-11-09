@@ -99,6 +99,22 @@ function buttonPress(){
  //timer variable to allow continuous movement      
  var timer;
 
+  function restart(e) {
+   console.log("button");
+   context.clearRect(0, 0, canvas.width, canvas.height);
+   x = 100;
+   y = 100;
+   clearInterval(timer);
+   gameOver = false;
+   for (i = 0; i < 200; ++i) {
+       grid[i] = [];
+
+       for (j = 0; j < 200; ++j) {
+           grid[i][j] = false;
+       }
+   }
+ }
+
 
  // debugger
  //describes the continuous movement of the dot by repeating past movement until key is pressed again 
