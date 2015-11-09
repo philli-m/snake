@@ -53,3 +53,21 @@ https://github.com/carpedm20/snake-web https://github.com/Pnatani/Snake-Game/blo
 
 http://cdn.tutorialzine.com/wp-content/uploads/2010/02/i3.png
 
+ non ajax submission of name: 
+ and php   
+ $gamer_id = $_POST['fname'];
+  $score = $_POST['tile_count'];
+
+ $query = "INSERT INTO tile_game_count (fname, tile_count) VALUES ('$score', '$gamer_id')"; // Explain SQL Injection to me and how it can be prevented
+
+                <span id="user_action">
+
+                    <form id="name_form" method="post" action="snake.php">
+                        <label for="fname">First name:</label><input type="text" id="fname" name="fname"><br>
+                        <input class="button" type="submit" value="Submit">
+                    
+                    </form>
+                    
+                    <button class="button" onclick="restart();">Restart</button>
+                
+                </span>

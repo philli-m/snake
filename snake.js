@@ -1,127 +1,104 @@
- //<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-
+//if statment within movement function to ch//if statment within movement function to check grid coordinate is new and then labelling  contacted coordinates as true  var context = document.getElementById('canvas').getContext('2d');
 var context = document.getElementById('canvas').getContext('2d');
+var x = 100;
+var y = 100;
 
- var x = 100;
- var y = 100;
+var grid = [];
+var tile_count = 0;
+var game_count = 0;
+var game_over = false;
 
-grid = [];
-tile_count = 0; 
-game_count = 0; 
+var x_size = 200;
+var y_size = 200;
 
-function buttonPress(){
-    context.clearRect(0, 0, canvas.width, canvas.height)
-    var x = 100;
-    var y = 100;
-    console.log("button"); 
+for (i = 0; i < x_size; ++i) {
+    grid[i] = [];
+
+    for (j = 0; j < y_size; ++j) {
+        grid[i][j] = false;
+    }
 }
 
-//mapping the canvas grid to track collision detection and labelling all usable coordinates in the grid as false
-     for (i = 0; i < 200; ++i) {
-         grid[i] = [];
+function game_stop() {
+    clearInterval(timer);
+    game_over = true;
+    /*game_count = game_count + 1;
+          //  console.log(ocount);
 
-         for (j = 0; j < 200; ++j) {
-             grid[i][j] = false;
-         }
-     }
-   console.log("hello");
- //description of movement 
-     function rect(e) {
-        console.log(e);
-         switch (e.keyCode) {
+              //  $.ajax({
+              //      type:"POST",
+              //      url: "snake.php",
+              //      data: {game_count, tile_count}
+             //   });
+                tile_count = 0;*/
+    //context.clearRect(0, 0, canvas.width, canvas.height);
 
-             case 38:
-                 (y = y - 10);
-                 break;
+}
 
-             case 40:
-                 (y = y + 10);
-                 break;
+//description of movement
+function rect(e) {
+    if (game_over) {
+        return;
+    }
+    switch (e.keyCode) {
 
-             case 39:
-                 (x = x + 10);
-                 break;
+        case 38:
+            (y = y - 10);
+            break;
 
-             case 37:
-                 (x = x - 10);
-                 break;
-         }
+        case 40:
+            (y = y + 10);
+            break;
 
-         //confirming starting location of dot and size 
-         context.fillRect(x, y, 10, 10);
+        case 39:
+            (x = x + 10);
+            break;
 
-         //if statment within movement function to check grid coordinate is new and then labelling  contacted coordinates as true 
-         if (grid[x][y] === false) {
-             grid[x][y] = true;
-             //tile_count = tile_count + 1; 
-             //console.log(tile_count); 
-         //stopping timer and keydown behavior then resetting the canvas        
-         } else {
-            //sending both the counts before resetting board 
-                //game_count = game_count + 1; 
-                  //  console.log(game_count);
+        case 37:
+            (x = x - 10);
+            break;
+    }
+    if (((x > x_size) || (x < 0)) || ((y > y_size) || (y < 0))) {
+        console.log("GAME OVER");
+        game_stop();
+        return;
+    }
+    if (grid[x][y] === true) {
+        console.log("GAME OVER");
+        game_stop();
+        return;
+    }
 
-                      //  $.ajax({
-                      //      type:"POST",
-                      //      url: "snake.php", 
-                      //      data: {game_count, tile_count} 
-                     //   }); 
-                     //   tile_count = 0;
+    context.fillRect(x, y, 10, 10);
+    grid[x][y] = true;
 
-             clearInterval(timer);
-             //context.clearRect(0, 0, canvas.width, canvas.height);
+    var colors = [];
 
-             //button still not working!
+    for (var g = 0; g < 3; g++) {
+        colors.push(Math.floor(Math.random() * 255));
+    }
 
-             for (i = 0; i < 200; ++i) {
-             grid[i] = [];
+    context.fillStyle = "rgb(" + colors[0] + "," + colors[1] + "," + colors[2] + ")";
+}
 
-             for (j = 0; j < 200; ++j) {
-                 grid[i][j] = false;
-                 tile_count = 0; 
-                 document.onkeydown = null; 
-            }
-            }
-        }
+var timer;
 
-         //random color generation 
-         var colors = [];
-
-         //loop describing 3 random number generations which are then pushes to empty array 
-         for (var g = 0; g < 3; g++) {
-             colors.push(Math.floor(Math.random() * 255));
-         }
-
-         //calling dot to the assign random numbers as rgb colors in css format 
-         context.fillStyle = "rgb(" + colors[0] + "," + colors[1] + "," + colors[2] + ")";
-     }
-
- //timer variable to allow continuous movement      
- var timer;
-
-  function restart(e) {
-   console.log("button");
-   context.clearRect(0, 0, canvas.width, canvas.height);
-   x = 100;
-   y = 100;
-   clearInterval(timer);
-   gameOver = false;
-   for (i = 0; i < 200; ++i) {
+function restart() {
+   
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    x = 100;
+    y = 100;
+    game_over = false;
+     for (i = 0; i < x_size; ++i) {
        grid[i] = [];
 
-       for (j = 0; j < 200; ++j) {
+       for (j = 0; j < y_size; ++j) {
            grid[i][j] = false;
        }
-   }
- }
+     }
+}
 
-
- // debugger
- //describes the continuous movement of the dot by repeating past movement until key is pressed again 
- document.onkeydown = function (e) {
-     clearInterval(timer);
-     //console.log(x, y);
-     timer = setInterval(rect, 100, e);
-
- }; 
-
+document.onkeydown = function(e) {
+    clearInterval(timer);
+    timer = setInterval(rect, 100, e);
+};
