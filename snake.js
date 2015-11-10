@@ -58,7 +58,7 @@ function rect(e) {
             (x = x - 10);
             break;
     }
-    if (((x > x_size) || (x < 0)) || ((y > y_size) || (y < 0))) {
+    if (x > x_size || x < 0|| y > y_size || y < 0) {
         console.log("GAME OVER");
         game_stop();
         return;
