@@ -23,7 +23,7 @@
 
                     <input class="button" type="submit" id="submitButton"  name="submitButton" value="Submit">
                 </form>
-                <button class="button" onclick="restart();">Restart</button>
+                <button class="button" onclick="restart();">Start</button>
             </span>
         </div>
     </div>
@@ -36,8 +36,8 @@
 
       /* get some values from elements on the page: */
       var $form = $( this ),
-            term = $form.find('input[name="name"]').val(),
-            url = $form.attr( 'action' );
+           term = $form.find('input[name="name"]').val(),
+           url = $form.attr( 'action' );
 
       /* Send the data using post */
       var posting = $.post( url, { name: term } );
@@ -45,7 +45,8 @@
       /* Alerts the results */
       posting.done(function( data ) {
         var content = $(data).find('#content');
-        alert('success');
+        alert('Thank you ' + term);
+        $("#name_form")[0].reset();
       });
     });
 </script>

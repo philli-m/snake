@@ -4,7 +4,7 @@ var x = 100;
 var y = 100;
 
 var grid = [];
-var tile_count = 0;
+var num_tiles = 0;
 var game_count = 0;
 var game_over = false;
 
@@ -27,9 +27,9 @@ function game_stop() {
                 $.ajax({
                     type:"POST",
                     url: "snake.php",
-                    data: {game_count, tile_count}
+                    data: {game_count, num_tiles}
                 });
-                tile_count = 0;
+                num_tiles = 0;
     //context.clearRect(0, 0, canvas.width, canvas.height);
 
 }
@@ -39,6 +39,7 @@ function rect(e) {
     if (game_over) {
         return;
     }
+   
     switch (e.keyCode) {
 
         case 38:
@@ -57,6 +58,8 @@ function rect(e) {
             (x = x - 10);
             break;
     }
+    if (grid[x][y] === false) {
+        num_tiles = num_tiles+1; }
     if (x > x_size || x < 0|| y > y_size || y < 0) {
         console.log("GAME OVER");
         game_stop();
@@ -100,4 +103,5 @@ function restart() {
 document.onkeydown = function(e) {
     clearInterval(timer);
     timer = setInterval(rect, 100, e);
+
 };
