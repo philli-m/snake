@@ -22,15 +22,14 @@ for (i = 0; i < x_size; ++i) {
 function game_stop() {
     clearInterval(timer);
     game_over = true;
-    /*game_count = game_count + 1;
-          //  console.log(ocount);
-
-              //  $.ajax({
-              //      type:"POST",
-              //      url: "snake.php",
-              //      data: {game_count, tile_count}
-             //   });
-                tile_count = 0;*/
+    game_count = game_count + 1;
+                
+                $.ajax({
+                    type:"POST",
+                    url: "snake.php",
+                    data: {game_count, tile_count}
+                });
+                tile_count = 0;
     //context.clearRect(0, 0, canvas.width, canvas.height);
 
 }

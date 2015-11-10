@@ -16,13 +16,37 @@
             <canvas height="200px" id="canvas" style="border: 1px dotted black" width="200px"></canvas>
 
             <span id="user_action">
-                <form action="name">First name: <br><input type="text" name="fname"><br>
-                    <input class="button" type="submit" value="Submit">
+
+                <form id="name_form" action="snake.php" method="post">
+                    <label class="title">First Name</label>
+                    <input type="text" id="name" name="name" >First name: <br>
+
+                    <input type="submit" id="submitButton"  name="submitButton" value="Submit">
                 </form>
                 <button class="button" onclick="restart();">Restart</button>
             </span>
         </div>
     </div>
+    <script type='text/javascript'>
+    /* attach a submit handler to the form */
+    $("#name_form").submit(function(event) {
+
+      /* stop form from submitting normally */
+      event.preventDefault();
+
+      /* get some values from elements on the page: */
+      var $form = $( this ),
+          url = $form.attr( 'action' );
+
+      /* Send the data using post */
+      var posting = $.post( url, { name: $('#name').val() } );
+
+      /* Alerts the results */
+      posting.done(function( data ) {
+        alert('success');
+      });
+    });
+</script>
     <script type="text/javascript" src="snake.js"></script>
 </body>
 
