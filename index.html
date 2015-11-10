@@ -19,7 +19,7 @@
 
                 <form id="name_form" action="snake.php" method="post">
                     <label class="title">First Name</label>
-                    <input type="text" id="name" name="name" ><br>
+                    <input type="text" id="gamer" name="name" ><br>
 
                     <input class="button" type="submit" id="submitButton"  name="submitButton" value="Submit">
                 </form>
@@ -31,25 +31,27 @@
     /* attach a submit handler to the form */
     $("#name_form").submit(function(event) {
 
-      /* stop form from submitting normally */
-      event.preventDefault();
+        /* stop form from submitting normally */
+        event.preventDefault();
 
-      /* get some values from elements on the page: */
-      var $form = $( this ),
-           term = $form.find('input[name="name"]').val(),
-           url = $form.attr( 'action' );
+        /* get some values from elements on the page: */
+        var $form = $(this),
+            term = $form.find('input[name="name"]').val(),
+            url = $form.attr('action');
 
-      /* Send the data using post */
-      var posting = $.post( url, { name: term } );
+        /* Send the data using post */
+        var posting = $.post(url, {
+            name: term
+        });
 
-      /* Alerts the results */
-      posting.done(function( data ) {
-        var content = $(data).find('#content');
-        alert('Thank you ' + term);
-        $("#name_form")[0].reset();
-      });
+        /* Alerts the results */
+        posting.done(function(data) {
+            var content = $(data).find('#content');
+            alert('Thank you ' + term);
+            $("#name_form")[0].reset();
+        });
     });
-</script>
+    </script>
     <script type="text/javascript" src="snake.js"></script>
 </body>
 
