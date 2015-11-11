@@ -5,16 +5,13 @@ var y = 100;
 
 var grid = [];
 var num_tiles = 0;
-var game_count = 0;
 var game_over = false;
 
 var x_size = 200;
 var y_size = 200;
 
-for (i = 0; i < x_size; ++i) {
     grid[i] = [];
 
-    for (j = 0; j < y_size; ++j) {
         grid[i][j] = false;
     }
 }
@@ -22,14 +19,7 @@ for (i = 0; i < x_size; ++i) {
 function game_stop() {
     clearInterval(timer);
     game_over = true;
-    game_count = game_count + 1;
                 
-                $.ajax({
-                    type:"POST",
-                    url: "snake.php",
-                    data: {game_count, num_tiles}
-                });
-                num_tiles = 0;
     //context.clearRect(0, 0, canvas.width, canvas.height);
 
 }
@@ -60,7 +50,7 @@ function rect(e) {
     }
     if (grid[x][y] === false) {
         num_tiles = num_tiles+1; }
-    if (x > x_size || x < 0|| y > y_size || y < 0) {
+
         console.log("GAME OVER");
         game_stop();
         return;
