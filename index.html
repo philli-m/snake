@@ -18,12 +18,12 @@
             <span id="user_action">
 
                 <form id="name_form" action="snake.php" method="post">
-                    <label class="title">First Name</label>
+                    <label class="title">Name:</label>
                     <input type="text" id="name" name="name" ><br>
 
                     <input class="button" type="submit" id="submitButton"  name="submitButton" value="Submit">
                 </form>
-                <button class="button" onclick="restart();">Start</button>
+                <button class="button" onclick="restart();">Restart</button>
             </span>
         </div>
     </div>
@@ -40,14 +40,13 @@
            url = $form.attr( 'action' );
 
       /* Send the data using post */
-      var posting = $.post( url, { name: term } );
+      //var posting = $.post( url, { name: term } );
 
       /* Alerts the results */
-      posting.done(function( data ) {
-        var content = $(data).find('#content');
-        alert('Thank you ' + term);
+      //posting.done(function( data ) {
+        //var content = $(data).find('#content');
+        alert('Thank you ' + term + ', please start play by pressing an arrow key');
         $("#name_form")[0].reset();
-      });
     });
 </script>
     <script type="text/javascript" src="snake.js"></script>
