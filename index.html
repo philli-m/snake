@@ -2,7 +2,6 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 </head>
 
 <body>
@@ -27,25 +26,10 @@
             </span>
         </div>
     </div>
-    <script type='text/javascript'>
-    /* attach a submit handler to the form */
-    $("#name_form").submit(function(event) {
-      /* stop form from submitting normally */
-      event.preventDefault();
-      /* get some values from elements on the page: */
-      var $form = $( this ),
-           term = $form.find('input[name="name"]').val(),
-           url = $form.attr( 'action' );
-      /* Send the data using post */
-      //var posting = $.post( url, { name: term } );
-      /* Alerts the results */
-      //posting.done(function( data ) {
-        //var content = $(data).find('#content');
-        alert('Thank you ' + term + ', please start play by pressing an arrow key');
-        $("#name_form")[0].reset();
-    });
-</script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+
     <script type="text/javascript" src="snake.js"></script>
+
 </body>
 
 </html>

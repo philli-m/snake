@@ -2,7 +2,7 @@ var context = document.getElementById('canvas').getContext('2d');
 var x = 100;
 var y = 100;
 
-var term;
+var term = "unchanged";
 
 var grid = [];
 var num_tiles = 0;
@@ -26,16 +26,22 @@ for (i = 0; i < grid_x_size; ++i) {
 function game_stop() {
     clearInterval(timer);
     game_over = true;
+    console.log("game stopped");
+    console.log(term);
+    console.log(num_tiles);
     //game_count = game_count + 1;
 
     $.ajax({
         type:"POST",
+        async: false,
         url: "snake.php",
-        data: {num_tiles, term} //game_count
+        data: {
+          num_tiles: num_tiles,
+          term: term
+        } //game_count
     });
-    num_tiles = 0;
-    //context.clearRect(0, 0, canvas.width, canvas.height);
 
+    //context.clearRect(0, 0, canvas.width, canvas.height);
 }
 
 //description of movement
@@ -132,3 +138,26 @@ document.onkeydown = function(e) {
     timer = setInterval(rect, 100, e);
 
 };
+
+/* attach a submit handler to the form */
+$("#name_form").submit(function(event) {
+  /* stop form from submitting normally */
+  console.log("term: ", term)
+  event.preventDefault();
+  /* get some values from elements on the page: */
+  var  $form = $( this );
+  var  url = $form.attr( 'action' );
+  term = $form.find('input[name="name"]').val();
+
+  /* Send the data using post */
+  //var posting = $.post( url, { name: term } );
+  /* Alerts the results */
+  //posting.done(function( data ) {
+    //var content = $(data).find('#content');
+    alert('Thank you ' + term + ', please start play by pressing an arrow key');
+    console.log("term: ", term)
+    $("#name_form")[0].reset();
+});
+console.log("starting:")
+console.log(term);
+console.log(num_tiles);
